@@ -1,0 +1,18 @@
+# Maven
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Фото товаров (не включаем в репозиторий, т.к. хранятся локально)
+product_images/
+
+# Системные файлы
+.DS_Store
+Thumbs.db
