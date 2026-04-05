@@ -1,0 +1,203 @@
+/* ООО «Обувь» — таблица стилей
+   Руководство по стилю:
+     Шрифт:            Times New Roman
+     Основной фон:     #FFFFFF (белый)
+     Дополнительный:   #7FFF00 (chartreuse)
+     Акцент (CTA):     #00FA9A (medium spring green)
+     Скидка > 15%:     #2E8B57 (sea green)
+*/
+
+/* ── Глобальные настройки ── */
+* {
+    -fx-font-family: 'Times New Roman', serif;
+}
+
+.root {
+    -fx-background-color: white;
+}
+
+/* ── Заголовочная панель ── */
+.header-bar {
+    -fx-background-color: #7FFF00;
+    -fx-padding: 8 15 8 15;
+    -fx-border-color: #5ed600;
+    -fx-border-width: 0 0 2 0;
+}
+
+.page-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.user-name-label {
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+/* ── Панель фильтров ── */
+.filter-bar {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 6 15 6 15;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ── Нижняя панель кнопок ── */
+.footer-bar {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 8 15 8 15;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ── Кнопки ── */
+.btn-accent {
+    -fx-background-color: #00FA9A;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 6 18;
+    -fx-background-radius: 4;
+}
+
+.btn-accent:hover {
+    -fx-background-color: #00d985;
+}
+
+.btn-secondary {
+    -fx-background-color: #e0e0e0;
+    -fx-cursor: hand;
+    -fx-padding: 6 18;
+    -fx-background-radius: 4;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #cccccc;
+}
+
+.btn-danger {
+    -fx-background-color: #ff5555;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 6 18;
+    -fx-background-radius: 4;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #e03030;
+}
+
+/* ── Экран входа ── */
+.login-container {
+    -fx-background-color: white;
+    -fx-padding: 50 80;
+    -fx-spacing: 14;
+    -fx-alignment: center;
+}
+
+.login-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.login-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #555555;
+}
+
+.login-field {
+    -fx-max-width: 320;
+    -fx-pref-height: 36;
+    -fx-font-size: 14px;
+    -fx-padding: 4 10;
+}
+
+/* ── Метка ошибки ── */
+.error-label {
+    -fx-text-fill: #cc0000;
+    -fx-font-size: 13px;
+}
+
+/* ── Список товаров: ячейка ── */
+.product-cell-root {
+    -fx-background-color: white;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6;
+}
+
+.product-cell-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.product-cell-text {
+    -fx-font-size: 13px;
+}
+
+.product-cell-discount-box {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+    -fx-background-color: #f9f9f9;
+    -fx-alignment: center;
+}
+
+/* ── Список заказов: ячейка ── */
+.order-cell-root {
+    -fx-background-color: white;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8;
+}
+
+.order-cell-article {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.order-cell-text {
+    -fx-font-size: 13px;
+}
+
+.order-cell-delivery-box {
+    -fx-border-color: #aaaaaa;
+    -fx-border-width: 1;
+    -fx-padding: 8;
+    -fx-min-width: 120;
+    -fx-alignment: center;
+    -fx-background-color: #fafafa;
+}
+
+/* ── Форма товара / заказа ── */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-spacing: 12;
+}
+
+.form-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-min-width: 160;
+}
+
+.form-field {
+    -fx-font-size: 13px;
+    -fx-pref-height: 32;
+}
+
+.form-id-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #888888;
+}
+
+/* ── ScrollPane без лишней рамки ── */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: white;
+}
