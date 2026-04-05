@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.shoeshop.controller.LoginController"
+      styleClass="login-container"
+      alignment="CENTER"
+      spacing="14"
+      minWidth="480"
+      minHeight="500">
+
+    <!-- Логотип компании -->
+    <ImageView fx:id="logoView"
+               fitWidth="200" fitHeight="80"
+               preserveRatio="true"/>
+
+    <!-- Заголовок -->
+    <Label text="ООО «Обувь»" styleClass="login-title"/>
+    <Label text="Вход в систему"  styleClass="login-subtitle"/>
+
+    <Separator>
+        <VBox.margin><Insets top="5" bottom="5"/></VBox.margin>
+    </Separator>
+
+    <!-- Поля ввода -->
+    <TextField fx:id="loginField"
+               promptText="Логин"
+               styleClass="login-field"
+               maxWidth="320">
+        <VBox.margin><Insets top="5"/></VBox.margin>
+    </TextField>
+
+    <PasswordField fx:id="passwordField"
+                   promptText="Пароль"
+                   styleClass="login-field"
+                   maxWidth="320"/>
+
+    <!-- Метка ошибки (скрыта по умолчанию) -->
+    <Label fx:id="errorLabel"
+           styleClass="error-label"
+           wrapText="true"
+           maxWidth="320"
+           visible="false"/>
+
+    <!-- Кнопки -->
+    <Button text="Войти"
+            onAction="#handleLogin"
+            styleClass="btn-accent"
+            maxWidth="320"
+            defaultButton="true">
+        <VBox.margin><Insets top="10"/></VBox.margin>
+    </Button>
+
+    <Button text="Войти как гость"
+            onAction="#handleGuest"
+            styleClass="btn-secondary"
+            maxWidth="320"/>
+</VBox>
