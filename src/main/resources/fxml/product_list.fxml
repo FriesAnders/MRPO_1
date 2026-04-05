@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shoeshop.controller.ProductListController"
+            minWidth="900" minHeight="600">
+
+    <!-- ── Верхняя панель ────────────────────────────────────────────── -->
+    <top>
+        <VBox>
+            <!-- Заголовочная строка -->
+            <HBox styleClass="header-bar"
+                  alignment="CENTER_LEFT"
+                  spacing="12">
+                <ImageView fx:id="logoView"
+                           fitWidth="120" fitHeight="40"
+                           preserveRatio="true"/>
+                <Label text="Список товаров" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="userNameLabel" styleClass="user-name-label"/>
+                <Button text="Выйти"
+                        onAction="#handleLogout"
+                        styleClass="btn-secondary"/>
+            </HBox>
+
+            <!-- Панель фильтров (видна только менеджеру / администратору) -->
+            <HBox fx:id="filterBar"
+                  styleClass="filter-bar"
+                  alignment="CENTER_LEFT"
+                  spacing="10">
+                <TextField fx:id="searchField"
+                           promptText="Поиск по наименованию, категории, производителю, поставщику..."
+                           prefWidth="380"
+                           styleClass="form-field"/>
+                <ComboBox fx:id="supplierFilterCombo"
+                          prefWidth="200"
+                          styleClass="form-field"/>
+                <ComboBox fx:id="sortCombo"
+                          prefWidth="180"
+                          styleClass="form-field"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- ── Список товаров ─────────────────────────────────────────────── -->
+    <center>
+        <ListView fx:id="productListView"
+                  BorderPane.alignment="CENTER"/>
+    </center>
+
+    <!-- ── Нижняя панель кнопок ───────────────────────────────────────── -->
+    <bottom>
+        <HBox styleClass="footer-bar"
+              alignment="CENTER_LEFT"
+              spacing="10">
+            <Button text="← Выйти"
+                    onAction="#handleLogout"
+                    styleClass="btn-secondary"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="deleteProductButton"
+                    text="Удалить товар"
+                    onAction="#handleDeleteProduct"
+                    styleClass="btn-danger"
+                    visible="false" managed="false"/>
+            <Button fx:id="addProductButton"
+                    text="+ Добавить товар"
+                    onAction="#handleAddProduct"
+                    styleClass="btn-accent"
+                    visible="false" managed="false"/>
+            <Button fx:id="ordersButton"
+                    text="Заказы →"
+                    onAction="#handleOrders"
+                    styleClass="btn-accent"
+                    visible="false" managed="false"/>
+        </HBox>
+    </bottom>
+</BorderPane>
