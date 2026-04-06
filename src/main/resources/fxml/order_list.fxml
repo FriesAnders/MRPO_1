@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shoeshop.controller.OrderListController"
+            minWidth="800" minHeight="500">
+
+    <!-- ── Заголовочная строка ─────────────────────────────────────────── -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="12">
+            <Label text="Список заказов" styleClass="page-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userNameLabel" styleClass="user-name-label"/>
+            <Button text="Выйти"
+                    onAction="#handleLogout"
+                    styleClass="btn-secondary"/>
+        </HBox>
+    </top>
+
+    <!-- ── Список заказов ─────────────────────────────────────────────── -->
+    <center>
+        <ListView fx:id="orderListView"
+                  BorderPane.alignment="CENTER"/>
+    </center>
+
+    <!-- ── Нижняя панель кнопок ───────────────────────────────────────── -->
+    <bottom>
+        <HBox styleClass="footer-bar" alignment="CENTER_LEFT" spacing="10">
+            <Button text="← Назад"
+                    onAction="#handleBack"
+                    styleClass="btn-secondary"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="deleteOrderButton"
+                    text="Удалить заказ"
+                    onAction="#handleDeleteOrder"
+                    styleClass="btn-danger"
+                    visible="false" managed="false"/>
+            <Button fx:id="addOrderButton"
+                    text="+ Добавить заказ"
+                    onAction="#handleAddOrder"
+                    styleClass="btn-accent"
+                    visible="false" managed="false"/>
+        </HBox>
+    </bottom>
+</BorderPane>
