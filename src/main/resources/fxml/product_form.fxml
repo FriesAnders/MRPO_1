@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shoeshop.controller.ProductFormController"
+            minWidth="700" minHeight="580">
+
+    <!-- ── Заголовок ─────────────────────────────────────────────────── -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="12">
+            <Label text="Карточка товара" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- ── Тело формы ────────────────────────────────────────────────── -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox styleClass="form-container" spacing="10">
+                <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
+
+                <!-- ID (только для чтения) -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="ID:" styleClass="form-label"/>
+                    <Label fx:id="idLabel" styleClass="form-id-label"/>
+                </HBox>
+
+                <!-- Фото + основные поля -->
+                <HBox spacing="20" alignment="TOP_LEFT">
+                    <!-- Левая колонка: фото -->
+                    <VBox spacing="8" alignment="CENTER" minWidth="150">
+                        <ImageView fx:id="photoView"
+                                   fitWidth="150" fitHeight="120"
+                                   preserveRatio="true"
+                                   style="-fx-border-color: #cccccc; -fx-border-width: 1;"/>
+                        <Button text="Выбрать фото"
+                                onAction="#handleChoosePhoto"
+                                styleClass="btn-secondary"
+                                maxWidth="150"/>
+                    </VBox>
+
+                    <!-- Правая колонка: поля ввода -->
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+
+                        <!-- Наименование -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Наименование:" styleClass="form-label"/>
+                            <TextField fx:id="nameField"
+                                       promptText="Введите наименование товара"
+                                       styleClass="form-field"
+                                       HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <!-- Категория -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Категория:" styleClass="form-label"/>
+                            <ComboBox fx:id="categoryCombo"
+                                      promptText="Выберите категорию"
+                                      styleClass="form-field"
+                                      HBox.hgrow="ALWAYS"
+                                      maxWidth="Infinity"/>
+                        </HBox>
+
+                        <!-- Производитель -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Производитель:" styleClass="form-label"/>
+                            <ComboBox fx:id="manufacturerCombo"
+                                      promptText="Выберите производителя"
+                                      styleClass="form-field"
+                                      HBox.hgrow="ALWAYS"
+                                      maxWidth="Infinity"/>
+                        </HBox>
+
+                        <!-- Поставщик -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Поставщик:" styleClass="form-label"/>
+                            <ComboBox fx:id="supplierCombo"
+                                      promptText="Выберите поставщика"
+                                      styleClass="form-field"
+                                      HBox.hgrow="ALWAYS"
+                                      maxWidth="Infinity"/>
+                        </HBox>
+
+                        <!-- Цена -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Цена (руб.):" styleClass="form-label"/>
+                            <TextField fx:id="priceField"
+                                       promptText="Например: 1500.00"
+                                       styleClass="form-field"
+                                       HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <!-- Единица измерения -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Ед. измерения:" styleClass="form-label"/>
+                            <ComboBox fx:id="unitCombo"
+                                      promptText="Выберите ед. измерения"
+                                      styleClass="form-field"
+                                      HBox.hgrow="ALWAYS"
+                                      maxWidth="Infinity"/>
+                        </HBox>
+
+                        <!-- Количество на складе -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Кол-во на складе:" styleClass="form-label"/>
+                            <TextField fx:id="stockField"
+                                       promptText="Целое число, ≥ 0"
+                                       styleClass="form-field"
+                                       HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <!-- Скидка -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Скидка (%):" styleClass="form-label"/>
+                            <TextField fx:id="discountField"
+                                       promptText="0–100, например: 15"
+                                       styleClass="form-field"
+                                       HBox.hgrow="ALWAYS"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <!-- Описание -->
+                <HBox alignment="TOP_LEFT" spacing="10">
+                    <Label text="Описание:" styleClass="form-label"/>
+                    <TextArea fx:id="descriptionArea"
+                              promptText="Краткое описание товара"
+                              prefHeight="80"
+                              wrapText="true"
+                              styleClass="form-field"
+                              HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- ── Кнопки сохранения / отмены ─────────────────────────────────── -->
+    <bottom>
+        <HBox styleClass="footer-bar" alignment="CENTER_RIGHT" spacing="10">
+            <Button text="Отмена"
+                    onAction="#handleCancel"
+                    styleClass="btn-secondary"/>
+            <Button text="Сохранить"
+                    onAction="#handleSave"
+                    styleClass="btn-accent"
+                    defaultButton="true"/>
+        </HBox>
+    </bottom>
+</BorderPane>
