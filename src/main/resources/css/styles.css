@@ -192,6 +192,15 @@
     -fx-text-fill: #888888;
 }
 
+/* ── Отключаем стандартный синий фон выделения в ListView ──
+   Кастомные ячейки сами управляют своим фоном через HBox.setStyle().
+   Без этого правила при выделении ячейки синий фон перекрывал бы
+   чёрный текст, делая его невидимым. */
+.list-cell:filled:selected,
+.list-cell:filled:selected:focused {
+    -fx-background-color: transparent;
+}
+
 /* ── ScrollPane без лишней рамки ── */
 .scroll-pane {
     -fx-background-color: transparent;

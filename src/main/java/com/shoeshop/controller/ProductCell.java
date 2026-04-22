@@ -82,7 +82,7 @@ public class ProductCell extends ListCell<Product> {
 
         // ── Цвет фона и текста в зависимости от условий ──────────────────
         applyRowStyle(root, product, titleLabel, descLabel, mfrLabel,
-                supplierLabel, unitLabel, stockLabel, discountBox);
+                supplierLabel, unitLabel, stockLabel);
 
         setGraphic(root);
         setText(null);
@@ -98,7 +98,8 @@ public class ProductCell extends ListCell<Product> {
             // Основная цена: перечёркнутая, красная
             Label original = new Label(String.format("Цена: %.2f руб.", product.getPrice()));
             original.setFont(FONT_NORMAL);
-            original.setStrikethrough(true);
+            // Label не имеет setStrikethrough — применяем через CSS
+            original.setStyle("-fx-strikethrough: true;");
             original.setTextFill(Color.RED);
 
             // Цена со скидкой: чёрная
