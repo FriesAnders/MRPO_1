@@ -1,7 +1,15 @@
 package com.shoeshop.service;
 
-import com.shoeshop.dao.*;
-import com.shoeshop.model.*;
+import com.shoeshop.dao.CategoryDao;
+import com.shoeshop.dao.ManufacturerDao;
+import com.shoeshop.dao.ProductDao;
+import com.shoeshop.dao.SupplierDao;
+import com.shoeshop.dao.UnitDao;
+import com.shoeshop.model.Category;
+import com.shoeshop.model.Manufacturer;
+import com.shoeshop.model.Product;
+import com.shoeshop.model.Supplier;
+import com.shoeshop.model.Unit;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -56,6 +56,20 @@
                     <mainClass>com.shoeshop.Main</mainClass>
                 </configuration>
             </plugin>
+
+            <!-- Checkstyle: статический анализ стиля кода -->
+            <!-- Запуск: mvn checkstyle:check -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

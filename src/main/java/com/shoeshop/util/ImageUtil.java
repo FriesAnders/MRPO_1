@@ -3,7 +3,8 @@ package com.shoeshop.util;
 import javafx.scene.image.Image;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -64,7 +65,7 @@ public final class ImageUtil {
         if (imagePath != null && !imagePath.isBlank()) {
             try {
                 Files.deleteIfExists(Paths.get(imagePath));
-            } catch (IOException ignored) {}
+            } catch (IOException ignored) { }
         }
     }
 
@@ -90,8 +91,11 @@ public final class ImageUtil {
         if (is != null) {
             return new Image(is, 120, 100, true, true);
         }
-        // Если заглушка тоже не найдена — возвращаем пустой Image
-        return new Image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==");
+        // Если заглушка тоже не найдена — возвращаем минимальный прозрачный PNG
+        String emptyPng = "data:image/png;base64,"
+                + "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJ"
+                + "AAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
+        return new Image(emptyPng);
     }
 
     // Масштабирование с сохранением качества

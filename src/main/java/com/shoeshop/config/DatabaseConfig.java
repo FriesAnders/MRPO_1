@@ -16,7 +16,7 @@ import java.util.Properties;
  */
 public class DatabaseConfig {
 
-    private static final HikariDataSource dataSource;
+    private static final HikariDataSource DATA_SOURCE;
 
     static {
         try {
@@ -34,7 +34,7 @@ public class DatabaseConfig {
             config.setMaximumPoolSize(10);
             config.setConnectionTimeout(5000);  // 5 секунд на подключение
 
-            dataSource = new HikariDataSource(config);
+            DATA_SOURCE = new HikariDataSource(config);
         } catch (Exception e) {
             throw new RuntimeException(
                     "Не удалось инициализировать подключение к базе данных: " + e.getMessage(), e);
@@ -45,6 +45,6 @@ public class DatabaseConfig {
 
     /** Возвращает соединение из пула. Закрывать соединение через try-with-resources. */
     public static Connection getConnection() throws SQLException {
-        return dataSource.getConnection();
+        return DATA_SOURCE.getConnection();
     }
 }

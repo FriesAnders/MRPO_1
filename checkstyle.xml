@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!--
+    Конфигурация Checkstyle для проекта ООО «Обувь».
+    Проверяет соответствие кода соглашению CamelCase,
+    отсутствие лишних импортов, базовую структуру классов.
+    Запуск: mvn checkstyle:check
+-->
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="warning"/>
+
+    <!-- Максимальная длина строки -->
+    <module name="LineLength">
+        <property name="max" value="130"/>
+        <property name="ignorePattern" value="^package.*|^import.*|href=|http://|https://"/>
+    </module>
+
+    <!-- Файл должен заканчиваться переводом строки -->
+    <module name="NewlineAtEndOfFile">
+        <property name="lineSeparator" value="lf_cr_crlf"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- ── Именование ───────────────────────────────────────────── -->
+
+        <!-- Классы и интерфейсы: UpperCamelCase -->
+        <module name="TypeName"/>
+
+        <!-- Методы: lowerCamelCase -->
+        <module name="MethodName"/>
+
+        <!-- Локальные переменные: lowerCamelCase -->
+        <module name="LocalVariableName"/>
+
+        <!-- Параметры методов: lowerCamelCase -->
+        <module name="ParameterName"/>
+
+        <!-- Поля экземпляра: lowerCamelCase -->
+        <module name="MemberName"/>
+
+        <!-- Статические поля: lowerCamelCase (или UPPER_CASE для констант) -->
+        <module name="StaticVariableName"/>
+
+        <!-- Константы (static final): UPPER_SNAKE_CASE -->
+        <module name="ConstantName"/>
+
+        <!-- ── Импорты ───────────────────────────────────────────────── -->
+
+        <!-- Запрет неиспользуемых импортов -->
+        <module name="UnusedImports"/>
+
+        <!-- Запрет импорта со звёздочкой (import java.util.*) -->
+        <module name="AvoidStarImport"/>
+
+        <!-- ── Форматирование ────────────────────────────────────────── -->
+
+        <!-- Отступ: 4 пробела -->
+        <module name="Indentation">
+            <property name="basicOffset" value="4"/>
+            <property name="caseIndent" value="4"/>
+        </module>
+
+        <!-- Пробелы вокруг операторов (=, +, -, &&, ||) -->
+        <module name="WhitespaceAround">
+            <property name="allowEmptyConstructors" value="true"/>
+            <property name="allowEmptyMethods" value="true"/>
+            <property name="allowEmptyTypes" value="true"/>
+            <property name="allowEmptyLambdas" value="true"/>
+        </module>
+
+        <!-- Нет пробела перед запятой или точкой с запятой -->
+        <module name="NoWhitespaceBefore"/>
+
+        <!-- ── Качество кода ─────────────────────────────────────────── -->
+
+        <!-- Запрет пустых блоков catch без комментария -->
+        <module name="EmptyCatchBlock">
+            <property name="exceptionVariableName" value="ignored|expected"/>
+        </module>
+
+        <!-- Упрощённые булевы возвраты: return x == y вместо if (x==y) return true -->
+        <module name="SimplifyBooleanReturn"/>
+
+        <!-- Нет лишних скобок в выражениях -->
+        <module name="UnnecessaryParentheses"/>
+
+        <!-- Строки сравниваются через equals(), а не == -->
+        <module name="StringLiteralEquality"/>
+
+        <!-- Переопределение equals() должно сопровождаться hashCode() -->
+        <module name="EqualsHashCode"/>
+
+        <!-- Модификаторы в правильном порядке: public static final ... -->
+        <module name="ModifierOrder"/>
+
+        <!-- Нет дублирующихся модификаторов -->
+        <module name="RedundantModifier"/>
+
+    </module>
+</module>

@@ -1,11 +1,18 @@
 package com.shoeshop.controller;
 
-import com.shoeshop.model.*;
+import com.shoeshop.model.Category;
+import com.shoeshop.model.Manufacturer;
+import com.shoeshop.model.Product;
+import com.shoeshop.model.Supplier;
+import com.shoeshop.model.Unit;
 import com.shoeshop.service.ProductService;
 import com.shoeshop.util.AlertUtil;
 import com.shoeshop.util.ImageUtil;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
